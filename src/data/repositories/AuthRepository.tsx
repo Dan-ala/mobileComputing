@@ -7,7 +7,7 @@ import { ResponseApiDelivery } from "../remote/models/ResponsiveApiDelivery";
 export class AuthRepositoryImpl implements AuthRepository {
   async register(user: User): Promise<ResponseApiDelivery> {
     try {
-      const response = await ApiDelivery.post<ResponseApiDelivery>('./users/create', user);
+      const response = await ApiDelivery.post<ResponseApiDelivery>('users/create', user);
       return Promise.resolve(response.data);
     } catch (error) {
       let e = (error as AxiosError);

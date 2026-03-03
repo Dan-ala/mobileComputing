@@ -13,7 +13,7 @@ export const HomeScreen = () => {
   return (
   <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'android' ? 'padding' : 'height'}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{
         flex: 1
       }}
