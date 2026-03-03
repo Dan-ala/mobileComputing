@@ -5,8 +5,8 @@ const RegisterViewModel = () => {
   const [values, setValues] = useState({
     documento: '',
     nombUsu: '',
-    password: '',
     celular: '',
+    password: '',
     confirmPassword: '',
   });
   const onChange = (property: string, value: any) => {
@@ -16,8 +16,8 @@ const RegisterViewModel = () => {
     setValues({
         documento: '',
         nombUsu: '',
-        password: '',
         celular: '',
+        password: '',
         confirmPassword: '',
     });
   };

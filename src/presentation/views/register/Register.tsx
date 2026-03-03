@@ -13,7 +13,7 @@ export const RegisterScreen = () => {
   return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <KeyboardAvoidingView
-          behavior={Platform.OS === 'android' ? 'padding' : 'height'}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={{
             flex: 1
           }}
@@ -25,14 +25,14 @@ export const RegisterScreen = () => {
         >
     <View style={styles.container}>
       <Image
-        source={require('../../../../assets/chef.jpg')}
+        source={require('../../../../assets/miprimercuaderno/2.jpg')}
         style={styles.imageBackground}
       />
       <View style={styles.logoContainer}>
-        <Image
+        {/* <Image
           source={require('../../../../assets/miprimercuaderno/notebook logo.jpg')}
           style={styles.logoImage}
-        />
+        /> */}
         <Text style={styles.logoText}>Papelería Mi Primer Cuaderno</Text>
       </View>
       <View style={styles.form}>
