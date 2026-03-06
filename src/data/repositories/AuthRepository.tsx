@@ -3,7 +3,6 @@ import { User } from "../../domain/entities/User";
 import { AuthRepository } from "../../domain/repositories/AuthRepository";
 import { ApiDelivery } from "../remote/api/ApiDelivery";
 import { ResponseApiDelivery } from "../remote/models/ResponsiveApiDelivery";
-
 export class AuthRepositoryImpl implements AuthRepository {
   async register(user: User): Promise<ResponseApiDelivery> {
     try {
@@ -13,6 +12,20 @@ export class AuthRepositoryImpl implements AuthRepository {
       let e = (error as AxiosError);
       console.log('Error: ' + JSON.stringify(e.response?.data));
       const apiError: ResponseApiDelivery = JSON.parse(JSON.stringify(e.response?.data));
+      return Promise.resolve(apiError);
+    }
+  }
+  async login(documento: string, password: string): Promise<ResponseApiDelivery> {
+    try {
+      const response = await ApiDelivery.post<ResponseApiDelivery>('users/login', {
+        documento: documento,
+        password: password
+      });
+      return Promise.resolve(response.data);
+    } catch (error) {
+      let e = (error as AxiosError);
+      console.log('error' + JSON.stringify(e.response?.data));
+      const apiError:ResponseApiDelivery = JSON.parse(JSON.stringify(e.response?.data));
       return Promise.resolve(apiError);
     }
   }
