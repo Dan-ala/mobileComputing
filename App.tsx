@@ -3,10 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RegisterScreen } from './src/presentation/views/register/Register';
 import { HomeScreen } from './src/presentation/views/home/Home';
+import { AdminScreen } from './src/presentation/views/profile/admin/Admin';
+import { ProfileInfoScreen } from './src/presentation/views/profile/info/ProfileInfo';
   
 export type RootStackParamList = {
   HomeScreen: undefined;
   RegisterScreen: undefined;
+  AdminScreen: undefined;
+  ProfileInfoScreen: undefined;
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +29,14 @@ const App = () => {
             headerShown: true,
             title: "Registro",
           }}  
+        />
+        <Stack.Screen
+          name="AdminScreen"
+          component={AdminScreen}
+        />
+        <Stack.Screen
+          name="ProfileInfoScreen"
+          component={ProfileInfoScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

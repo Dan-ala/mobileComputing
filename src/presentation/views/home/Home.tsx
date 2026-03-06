@@ -7,14 +7,22 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../../App';
 import { useNavigation } from '@react-navigation/native';
 import useViewModel from './ViewModel';
+
 export const HomeScreen = () => {
-  const { documento, password, errorMessage, onChange, login } = useViewModel();
+  const { documento, password, errorMessage, user, onChange, login } = useViewModel();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   useEffect(() => {
     if (errorMessage != '') {
       ToastAndroid.show(errorMessage, ToastAndroid.LONG);
     }
   }, [errorMessage]);
+
+  useEffect(() => {
+    if (user?.documento !== null && user?.documento !== undefined){
+      navigation.replace('ProfileInfoScreen')
+    }
+  }, [user])
+
   return (
   <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <KeyboardAvoidingView
@@ -61,19 +69,15 @@ export const HomeScreen = () => {
           />
 
           <View style={{ marginTop: 40 }}>
-            <RoundedButton text='INGRESAR' onPress={() => {
-              console.log('Documento: ' + documento);
-              console.log('Password: ' + password);
-              login()
-            }} />
+            <RoundedButton text='INGRESAR' onPress={() => { login() }} />
           </View>
 
-          <View style={styles.formRegister}>
+          {/* <View style={styles.formRegister}>
             <Text>¿No tienes cuenta?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
               <Text style={styles.formRegisterText}>Regístrate</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
       </View>
     </ScrollView>
