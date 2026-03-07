@@ -80,7 +80,7 @@ const AdminStyles = StyleSheet.create({
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
         padding: 30,
-    },
+    }
 });
 
 export default AdminStyles;

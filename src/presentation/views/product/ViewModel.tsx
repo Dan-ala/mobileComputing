@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RegisterAuthUseCase } from '../../../domain/useCases/auth/RegisterAuth';
+import { RegisterAuthUseCase } from '../../../domain/useCases/auth/ProductsAuth';
 const ProductViewModel = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [values, setValues] = useState({
@@ -54,7 +54,12 @@ const ProductViewModel = () => {
     const registerProduct = async () => {
       if (isValidForm()) {
         try {
-          const response = await RegisterAuthUseCase(values);
+          const productData = {
+            ...values,
+            precio: parseFloat(values.precio),
+            stockActual: parseInt(values.stockActual, 10)
+          }
+          const response = await RegisterAuthUseCase(productData);
           console.log('Result: ' + JSON.stringify(response));
           resetForm();
         } catch (error) {

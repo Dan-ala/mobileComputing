@@ -9,7 +9,7 @@ import useViewModel from './ViewModel';
 export const CreateProductScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const {registerProduct} = useViewModel()
+    const {serie, tipo, nombProd, provee, precio, stockActual ,registerProduct,onChange} = useViewModel()
 
     return (
 
@@ -32,14 +32,49 @@ export const CreateProductScreen = () => {
 
                 {/* Top Row: Serial and Cantidad */}
                 <View style={styles.row}>
-                    <TextInput style={styles.smallInput} placeholder="Serial" placeholderTextColor="#D2B48C" />
-                    <TextInput style={styles.smallInput} placeholder="Cantidad" placeholderTextColor="#D2B48C" />
+                    <TextInput style={styles.smallInput} 
+                        placeholder="Serial"
+                        placeholderTextColor="#D2B48C" 
+                        keyboardType='numeric'
+                        onChangeText={(text) => onChange('serie', text)}
+                        value={serie}
+                    />
+                    <TextInput style={styles.smallInput} 
+                        placeholder="Cantidad" 
+                        keyboardType='numeric'
+                        onChangeText={(text) => onChange('stockActual', text)}
+                        value={stockActual}
+                        placeholderTextColor="#D2B48C" 
+                    />
                 </View>
 
                 {/* Full Width Inputs */}
-                <TextInput style={styles.fullInput} placeholder="Tipo" placeholderTextColor="#D2B48C" />
-                <TextInput style={styles.fullInput} placeholder="Nombre" placeholderTextColor="#D2B48C" />
-                <TextInput style={styles.fullInput} placeholder="Proveedor" placeholderTextColor="#D2B48C" />
+                <TextInput 
+                    style={styles.fullInput} 
+                    placeholder="Tipo" 
+                    placeholderTextColor="#D2B48C" 
+                    onChangeText={(text) => onChange('tipo', text)}
+                    value={tipo}
+                />
+                <TextInput style={styles.fullInput} 
+                    placeholder="Nombre" 
+                    placeholderTextColor="#D2B48C" 
+                    onChangeText={(text) => onChange('nombProd', text)}
+                    value={nombProd}
+                />
+                <TextInput style={styles.fullInput} 
+                    placeholder="Precio" 
+                    placeholderTextColor="#D2B48C" 
+                    keyboardType='numeric'
+                    onChangeText={(text) => onChange('precio', text)}
+                    value={precio}
+                />
+                <TextInput style={styles.fullInput} 
+                    placeholder="Proveedor"
+                    placeholderTextColor="#D2B48C" 
+                    onChangeText={(text) => onChange('provee', text)}
+                    value={provee}
+                />
 
                 {/* Action Icons */}
                 <View style={styles.iconRow}>

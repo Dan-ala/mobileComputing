@@ -1,6 +1,6 @@
-import { AuthRepositoryImpl } from "../../../data/repositories/AuthRepository";
-import { User } from "../../entities/User";
+import { AuthRepositoryImpl } from "../../../data/repositories/products/AuthRepository";
+import { Product } from "../../entities/Product";
 const { register } = new AuthRepositoryImpl();
-export const RegisterAuthUseCase = async (user: User) => {
-    return await register(user);
+export const RegisterAuthUseCase = async (product: Product) => {
+    return await register(product);
 }
