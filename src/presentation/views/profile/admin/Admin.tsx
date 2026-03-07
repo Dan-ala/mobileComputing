@@ -51,7 +51,7 @@ export const AdminScreen = () => {
                     <Text style={styles.adminButtonText}>Crear Elemento</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.adminButton}>
+                <TouchableOpacity style={styles.adminButton} onPress={() => navigation.navigate('LookAtProductScreen')}>
                     <Image source={require('../../../../../assets/user.png')} style={styles.adminIcon} />
                     <Text style={styles.adminButtonText}>Consultar Stock</Text>
                 </TouchableOpacity>

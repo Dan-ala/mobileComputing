@@ -6,6 +6,7 @@ import { HomeScreen } from './src/presentation/views/home/Home';
 import { AdminScreen } from './src/presentation/views/profile/admin/Admin';
 import { ProfileInfoScreen } from './src/presentation/views/profile/info/ProfileInfo';
 import { CreateProductScreen } from './src/presentation/views/product/Product';
+import { LookAtProductScreen } from './src/presentation/views/product/ConsultarProduct';
   
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -13,6 +14,7 @@ export type RootStackParamList = {
   AdminScreen: undefined;
   ProfileInfoScreen: undefined;
   CreateProductScreen: undefined;
+  LookAtProductScreen: undefined;
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -43,6 +45,10 @@ const App = () => {
         <Stack.Screen
           name="CreateProductScreen"
           component={CreateProductScreen}
+        />
+        <Stack.Screen
+          name="LookAtProductScreen"
+          component={LookAtProductScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

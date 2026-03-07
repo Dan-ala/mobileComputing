@@ -28,5 +28,55 @@ export default StyleSheet.create({
     iconRow: { flexDirection: 'row', justifyContent: 'space-around', width: '100%', marginTop: 30 },
     actionIcon: { width: 60, height: 60, resizeMode: 'contain' },
     backButton: { marginTop: 50, alignSelf: 'flex-end', marginRight: 20 },
-    largeBackArrow: { width: 100, height: 80, resizeMode: 'contain' }
+    largeBackArrow: { width: 100, height: 80, resizeMode: 'contain' },
+
+    stockInputContainer: {
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '85%',
+        height: 75,
+        borderRadius: 15,
+        marginBottom: 20,
+        paddingHorizontal: 15,
+        borderWidth: 2, // Borde negro definido en tu diseño
+        borderColor: 'black',
+    },
+
+    // Styles.ts update
+
+    stockInputIcon: {
+        width: 45,
+        height: 45,
+        resizeMode: 'contain',
+    },
+    // El TextInput estándar de React Native
+    stockTextInput: {
+        flex: 1,
+        fontSize: 22,
+        color: '#D2B48C', // Color café claro para el texto/placeholder
+        textAlign: 'center', // Centra el texto como en el mockup
+        fontWeight: '500',
+    },
+    // Botón de la lupa con el insecto
+    searchAction: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    searchIconLarge: {
+        width: 140,
+        height: 140,
+        resizeMode: 'contain',
+    },
+    // Flecha de retorno posicionada abajo a la derecha
+    backArrowWrapper: {
+        position: 'absolute',
+        bottom: 30,
+        right: 20,
+    },
+    backArrowIcon: {
+        width: 80,
+        height: 60,
+        resizeMode: 'contain',
+    }
 });
