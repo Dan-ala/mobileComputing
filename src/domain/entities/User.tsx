@@ -3,6 +3,7 @@ export interface User {
   nombUsu: string;
   celular: string;
   password: string;
+  rol: string;
   confirmPassword: string;
   session_token?: string;
 }

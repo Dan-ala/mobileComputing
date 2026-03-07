@@ -4,14 +4,7 @@ import { SaveUserUseCase } from '../../../domain/useCases/userLocal/SaveUserLoca
 
 import { useUserLocal } from '../../hooks/useUserLocal'
 
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../../App';
-
-import { useNavigation } from '@react-navigation/native';
-
-
 const HomeViewModel = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const [errorMessage, setErrorMessage] = useState('');
     const [values, setValues] = useState({
@@ -24,7 +17,7 @@ const HomeViewModel = () => {
 
     useEffect(() => {
         getUserSession();
-    })
+    }, []);
 
     const onChange = (property: string, value: any) => {
         setValues({ ...values, [property]: value });
@@ -34,7 +27,6 @@ const HomeViewModel = () => {
         if (isValidForm()) {
             const response = await LoginAuthUseCase(values.documento, values.password);
             console.log('Respuesta: ' + JSON.stringify(response));
-            navigation.navigate('AdminScreen')
             if (!response.success) {
                 setErrorMessage(response.message);
             } else {

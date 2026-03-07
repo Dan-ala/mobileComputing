@@ -6,6 +6,7 @@ const RegisterViewModel = () => {
     documento: '',
     nombUsu: '',
     celular: '',
+    rol: '',
     password: '',
     confirmPassword: '',
   });
@@ -17,6 +18,7 @@ const RegisterViewModel = () => {
         documento: '',
         nombUsu: '',
         celular: '',
+        rol: '',
         password: '',
         confirmPassword: '',
     });

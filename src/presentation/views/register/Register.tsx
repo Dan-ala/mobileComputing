@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Text, View, Image, ScrollView, ToastAndroid, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, Platform } from 'react-native';
 import { RoundedButton } from '../../components/RoundedButton';
 import { CustomTextInput } from '../../components/CustomTextInput';
+import { Picker } from '@react-native-picker/picker';
 import useViewModel from './ViewModel';
 import styles from './Styles';
 export const RegisterScreen = () => {
-  const { documento, nombUsu, password, celular, confirmPassword, errorMessage, onChange, register } = useViewModel();
+  const { documento, nombUsu, password, celular,rol, confirmPassword, errorMessage, onChange, register } = useViewModel();
   useEffect(() => {
     if (errorMessage !== '')
       ToastAndroid.show(errorMessage, ToastAndroid.LONG)
@@ -62,6 +63,7 @@ export const RegisterScreen = () => {
             onChangeText={onChange}
             value={celular}
           />
+
           <CustomTextInput
             image={require('../../../../assets/password.png')}
             placeholder='Contraseña'
@@ -80,6 +82,25 @@ export const RegisterScreen = () => {
             value={confirmPassword}
             secureTextEntry={true}
           />
+
+          <View style={styles.formInput}>
+            <Image 
+              source={require('../../../../assets/user.png')} 
+              style={styles.formIcon} 
+            />
+            <View style={[styles.formTextInput, { borderBottomWidth: 1, borderBottomColor: '#AAAAAA' }]}>
+              <Picker
+                selectedValue={rol}
+                onValueChange={(itemValue) => onChange('rol', itemValue)}
+                style={{ marginLeft: -10, color: '#000' }}
+              >
+                <Picker.Item label="Seleccionar Rol" value="" color="#999" />
+                <Picker.Item label="Administrador" value="Admin" />
+                <Picker.Item label="Vendedor" value="Vendedor" />
+              </Picker>
+            </View>
+          </View>
+
           <View style={{ marginTop: 20 }}>
             <RoundedButton text='ENVIAR' onPress={() => register()} />
           </View>

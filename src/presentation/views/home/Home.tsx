@@ -19,7 +19,11 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     if (user?.documento !== null && user?.documento !== undefined){
+      if (user.rol === 'Admin'){
+        navigation.replace('AdminScreen')
+      }else{
       navigation.replace('ProfileInfoScreen')
+      }
     }
   }, [user])
 
