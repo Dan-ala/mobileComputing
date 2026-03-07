@@ -4,6 +4,7 @@ import { AuthRepository } from "../../../domain/repositories/products/AuthReposi
 import { ApiDelivery } from "../../remote/api/ApiDelivery";
 import { ResponseApiDelivery } from "../../remote/models/ResponsiveApiDelivery";
 export class AuthRepositoryImpl implements AuthRepository {
+
   async register(product: Product): Promise<ResponseApiDelivery> {
     try {
       const response = await ApiDelivery.post<ResponseApiDelivery>('products/create', product);
@@ -30,4 +31,14 @@ export class AuthRepositoryImpl implements AuthRepository {
       return Promise.resolve(apiError);
     }
   }
+
+  async findBySerie(serie: string): Promise<ResponseApiDelivery> {
+        try {
+            const response = await ApiDelivery.get<ResponseApiDelivery>(`products/${serie}`);
+            return Promise.resolve(response.data);
+        } catch (error) {
+            let e = (error as any);
+            return Promise.resolve(e.response?.data);
+        }
+    }
 }

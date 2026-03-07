@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RegisterAuthUseCase } from '../../../domain/useCases/auth/ProductsAuth';
+// import { GetUserLocalUseCase } from '../../../domain/useCases/productLocal/GetProductLocal';
 const ProductViewModel = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [values, setValues] = useState({
@@ -68,11 +69,16 @@ const ProductViewModel = () => {
       }
     };
 
+    // const colsut = () await
+
+
+
     return {
         ...values,
         onChange,
         registerProduct,
         errorMessage,
+        
     };
 };  
 export default ProductViewModel;
